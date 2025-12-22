@@ -132,6 +132,17 @@ patch -p1 <../patch-5.15.195-rt90.patch
 cp /boot/config-5.15.0-139-generic .config
 ```
 
+bash file to launch both robots:
+```bash
+#!/bin/bash
+export PS4='+ $(date "+%H:%M:%S.%3N")  '
+set -x
+rostopic pub -1 -l /joint_position_example_controller/gripper_release std_msgs/Bool "data: true"
+echo "Hello world"
+echo " " > /tmp/run_barrier
+```
+
+
 ### Trouble shooting
 
 1. When encountered with following error: 
