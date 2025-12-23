@@ -102,16 +102,20 @@ roslaunch franka_gazebo panda.launch rviz:=true controller:=cartesian_impedance_
 and you should be able to drag the arm in the rviz.
 
 ```bash
-roslaunch franka_gazebo panda.launch x:=-0.5 world:=$(rospack find franka_gazebo)/world/stone.sdf controller:=joint_velocity_example_controller rviz:=true
+roslaunch franka_gazebo panda.launch controller:=joint_velocity_example_controller rviz:=true
 ```
 ```bash
 roslaunch franka_example_controllers joint_impedance_example_controller.launch load_gripper:=true robot:=panda
 ```
+```bash
+roslaunch franka_example_controllers joint_velocity_example_controller.launch robot_ip:=192.168.3.108
+```
 
 The correct way to teminate ros simulation: Press Ctrl+C and wait. Because pressing Ctrl+Z won't actually kill the process. If wrongly press Ctrl+Z, execute ```fg``` to revoke the process and press Ctrl+C to wait.
-
-192.168.3.108
-
+```bash
+cd build/examples
+./communication_test 192.168.3.108
+```
 ## Tips for Installing Real Time Kernel
 
 ### General steps
